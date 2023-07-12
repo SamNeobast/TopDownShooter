@@ -5438,8 +5438,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnRadius: 7
   maxSpawnRadius: 20
-  minTimeSpawn: 0.1
-  maxTimeSpawn: 2
+  minTimeSpawn: 0.05
+  maxTimeSpawn: 1
   enemy:
   - {fileID: 544656884349796323, guid: 162a63225a8a0b740b5465d1de618b19, type: 3}
   - {fileID: 3574552218330247298, guid: e7ae339ee37e95b44ae9ffc94bc44c7a, type: 3}
@@ -8143,7 +8143,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 857421806, guid: a1adc3557405dab438927e7468f34799, type: 3}
       propertyPath: timeRechange
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 643232007173423425, guid: a1adc3557405dab438927e7468f34799, type: 3}
       propertyPath: m_Name
@@ -8195,7 +8195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8801560179599168915, guid: a1adc3557405dab438927e7468f34799, type: 3}
       propertyPath: m_Size.x
-      value: 2.15
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 8801560179599168915, guid: a1adc3557405dab438927e7468f34799, type: 3}
       propertyPath: m_SortingLayer
