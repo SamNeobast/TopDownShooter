@@ -42,7 +42,7 @@ public class Bullet : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
 
-            ChangeAmountKills.OnKilledEnemy?.Invoke();
+            Events.OnKilledEnemy?.Invoke();
         }
     }
 }

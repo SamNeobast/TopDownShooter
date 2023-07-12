@@ -10,7 +10,7 @@ public class PlayerDead : MonoBehaviour
         anim = GetComponent<Animator>();
         Events.OnDeadedPlayer += PlayerDeadStopGame;
         Events.OnDeadedPlayer += PlayerDeadAnimation;
-        Events.OnDeadedPlayer += PlayerDeadShutDownMove;
+        Events.OnDeadedPlayer += PlayerDeadShutDownMoveAndShoot;
         Events.OnDeadedPlayer += PlayerShutDownReDead;
     }
 
@@ -45,16 +45,17 @@ public class PlayerDead : MonoBehaviour
         }
     }
 
-    private void PlayerDeadShutDownMove()
+    private void PlayerDeadShutDownMoveAndShoot()
     {
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<PlayerRotation>().enabled = false;
+        GetComponent<ShootingPistol>().enabled = false;
     }
     private void OnDestroy()
     {
         Events.OnDeadedPlayer -= PlayerDeadStopGame;
         Events.OnDeadedPlayer -= PlayerDeadAnimation;
-        Events.OnDeadedPlayer -= PlayerDeadShutDownMove;
+        Events.OnDeadedPlayer -= PlayerDeadShutDownMoveAndShoot;
         Events.OnDeadedPlayer -= PlayerShutDownReDead;
     }
 }

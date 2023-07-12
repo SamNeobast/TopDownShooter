@@ -4,14 +4,13 @@ using TMPro;
 
 public class ChangeAmountKills : MonoBehaviour
 {
-    public static Action OnKilledEnemy;
 
     [SerializeField] private TextMeshProUGUI amountKillUI;
     private int amountKill;
 
     private void Start()
     {
-        OnKilledEnemy += ChangeText;
+        Events.OnKilledEnemy += ChangeText;
     }
 
     private void ChangeText()
@@ -22,6 +21,6 @@ public class ChangeAmountKills : MonoBehaviour
 
     private void OnDestroy()
     {
-        OnKilledEnemy -= ChangeText;
+        Events.OnKilledEnemy -= ChangeText;
     }
 }
