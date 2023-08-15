@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
+using System.Runtime.ExceptionServices;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float force;
     [SerializeField] private GameObject bloodPrefab;
+    [SerializeField] private GameObject healthPoiton;
+    [SerializeField] private int chanceDropHealthPoiton;
 
     private Rigidbody2D rb;
     private Camera mainCam;
@@ -18,12 +22,22 @@ public class Bullet : MonoBehaviour
         LetsTheBulletFly();
 
         StartCoroutine(DestroyButtonAfter5Sec());
+
     }
 
     IEnumerator DestroyButtonAfter5Sec()
     {
         yield return new WaitForSeconds(5);
         Destroy(gameObject);
+    }
+
+    private void DropPotionAfterKill(Collider2D collision)
+    {
+        int randomDrop = UnityEngine.Random.Range(1, 101);
+        if (randomDrop <= chanceDropHealthPoiton)
+        {
+            Instantiate(healthPoiton, collision.transform.position, healthPoiton.transform.rotation);
+        }
     }
 
     private void LetsTheBulletFly()
@@ -39,10 +53,13 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == enemyTag)
         {
             Instantiate(bloodPrefab, collision.transform.position, collision.transform.rotation);
+            DropPotionAfterKill(collision);
             Destroy(collision.gameObject);
             Destroy(gameObject);
 
             Events.OnKilledEnemy?.Invoke();
         }
     }
+
+
 }

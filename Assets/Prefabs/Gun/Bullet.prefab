@@ -96,6 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 20
   bloodPrefab: {fileID: 4934407448846515402, guid: ffde64c5ab217f6459c1cbdcae9b1d44, type: 3}
+  healthPoiton: {fileID: 1406259193471424757, guid: 9198758a80c36364b946dcdbf11dc477, type: 3}
+  chanceDropHealthPoiton: 10
 --- !u!1 &6418862968835012243
 GameObject:
   m_ObjectHideFlags: 0
